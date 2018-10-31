@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cantilever</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@arces-wot/sepa-js@0.1.0/web/sepa.js"></script>
+    <script src="./lib/epoch-0.8.4/dist/js/epoch.min.js"></script>
+    <script src="./elaborazione.js"></script>
+
+    <link href = "./style.css" rel = "stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./lib/epoch-0.8.4/dist/css/epoch.min.css">
+
+
+
+</head>
+<body onload="init()">
+
+<script>
+
+    function init() {
+
+        lineChartData8 =  [{
+            label: "Series 1",
+            range: 'range-l',
+            //fps:60,
+            values: []
+        }
+        ];
+        lineChartData9 = [{   label: "Series 2",
+            range: 'range-l',
+            values: []
+        }
+        ];
+
+         graph8 = $('#lineChart').epoch({
+            type: 'time.line',
+            data: lineChartData8,
+            range: {
+                left: 'range-l'
+            },
+            axes: ['left', 'bottom']
+        });
+
+         graph9 = $('#lineChart2').epoch({
+            type: 'time.line',
+            data: lineChartData9,
+            range: {
+                left: 'range-l'
+            },
+            axes: ['left', 'bottom']
+        });
+
+        subscribe();
+
+
+    }
+
+
+</script>
+
+
+<div id="container" class="epoch category12">
+
+
+    <div id = "title"><p id="titleText">Cantilever</p></div>
+
+    <div id="grafici">
+
+        <h4>Sensore 8</h4>
+        <div id="lineChart" class ="graph" style="width: 800px; height: 200px"></div>
+        <h4>Sensore 9</h4>
+        <div id="lineChart2" class ="graph" style="width: 800px; height: 200px"></div>
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>
